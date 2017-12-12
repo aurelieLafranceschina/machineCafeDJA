@@ -3,7 +3,6 @@ $(document).ready(function() {
     var sucre = 0;
     var typePieces = [200 , 100 , 50 , 20 , 10 , 5] ; 
     var pieces = [0, 0, 0, 0, 0, 0] ;
-    var monnaie = 0;
 
 //_____________________________________GESTION Boissons
 $( ".choix" ).click(function() {    
@@ -77,6 +76,11 @@ $( "#renduMonnaie" ).click(function() {
     resetCoins();
 });
 
+function resetCoins(){
+    pieces = [0, 0, 0, 0, 0, 0]
+    majMonnayeur();
+} 
+
 function addCoin(coin){
     switch (coin) {
         case 5:
@@ -98,10 +102,11 @@ function addCoin(coin){
             pieces[0] = pieces[0]+1;
         break;
         default:
-            console.log("error");
+            alert("Erreur de Piece");
     }
     majMonnayeur();
 }
+
 
 function majMonnayeur()
 {
@@ -113,10 +118,6 @@ function majMonnayeur()
      $( "#monnayeur strong" ).html(monnaie); 
 }
 
-function resetCoins(){
-    monnaie=0;
-    $( "#monnayeur strong" ).html(monnaie);     
-} 
 //_____________________________________END GESTION Pieces
 
 });
