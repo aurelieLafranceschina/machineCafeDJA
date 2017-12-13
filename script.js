@@ -54,8 +54,9 @@ function prepare(nbSugar){
             for(i = 0; i < nbSugar ; i++)
             {
                 mesSucres += "<img class='img-responsive sucres sucresBoisson' src='images/monSucre.png'/>";
-                $("#zoneSucres").html(mesSucres);
             }
+            $("#zoneSucres").html(mesSucres);
+            $('#imgTouillette').addClass("selected"); //Ajouter Touillette Vide "visible"                      
         }else{
             $("#zoneSucres").html(mesSucres);
         }
