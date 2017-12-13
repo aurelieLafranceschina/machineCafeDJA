@@ -33,6 +33,10 @@ footer {
     cursor: pointer;
 }
 
+#imgTouillette
+{
+    cursor: pointer;    
+}
 #monGobelet{
     position: absolute;
     bottom: 0;

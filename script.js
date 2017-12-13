@@ -8,7 +8,7 @@ $(document).ready(function() {
     var monnaie = 0;
 
 //_____________________________________GESTION Boissons
-$( "#maBoisson" ).click(function() { 
+$( "#imgTouillette, #maBoisson, zoneSucres" ).click(function() { 
     resetDrink();    
 });
    
@@ -21,8 +21,18 @@ $( ".choix" ).click(function() {
 }); 
 
 $( "#valid" ).click(function() { 
-    let monSucre = sucre;  
-    prepare(monSucre);
+    let aRendre = (monnaie*100) - monPrix;
+    if(aRendre >= 0){
+        let monSucre = sucre;  
+        prepare(monSucre);
+        addSugar(0); 
+        $('.choix').removeClass("selected");     //Enlever les choix "selected"       
+        alert("Je vous rend " + aRendre); 
+        resetCoins();     
+    }else{
+        alert("Argent insuffisant ");              
+    }
+    
 });
 
 function selectDrink(doSelect, drink){
@@ -46,8 +56,6 @@ function resetDrink(){
 }
 
 function prepare(nbSugar){
-
-    
     let mesSucres = "";
     if($('.choix').hasClass("selected")){
         if(nbSugar>0){
@@ -56,14 +64,17 @@ function prepare(nbSugar){
                 mesSucres += "<img class='img-responsive sucres sucresBoisson' src='images/monSucre.png'/>";
             }
             $("#zoneSucres").html(mesSucres);
-            $('#imgTouillette').addClass("selected"); //Ajouter Touillette Vide "visible"                      
         }else{
             $("#zoneSucres").html(mesSucres);
         }
         $('#imgGobelet').removeClass("visible"); //Enlever GOBELET Vide "visible"          
         $('#imgBoisson' + boissonSelected).addClass("visible"); //Rendre la boisson associée "visible"
         $('.imgBoisson').not('#imgBoisson' + boissonSelected).removeClass("visible"); // /Enleve toutes les class 'selected, sauf element cliquée              
-    
+        sucre = 0;
+        if(nbSugar>0){ 
+            $('#imgTouillette').addClass("visible"); //Ajouter Touillette Vide "visible"            
+        }
+        
     }else{
         $("#zoneSucres").html(mesSucres);        
     }
@@ -115,7 +126,6 @@ $( "#renduMonnaie" ).click(function() {
 });
 
 function resetCoins(){
-    console.log((monnaie*100) - monPrix);
     pieces = [0, 0, 0, 0, 0, 0]
     majMonnayeur();
 } 
