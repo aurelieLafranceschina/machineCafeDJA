@@ -46,6 +46,8 @@ function resetDrink(){
 }
 
 function prepare(nbSugar){
+
+    
     let mesSucres = "";
     if($('.choix').hasClass("selected")){
         if(nbSugar>0){

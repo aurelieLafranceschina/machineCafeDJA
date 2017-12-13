@@ -30,6 +30,7 @@ footer {
 #maBoisson img {
     vertical-align:bottom;
     border:0;
+    cursor: pointer;
 }
 
 #monGobelet{
