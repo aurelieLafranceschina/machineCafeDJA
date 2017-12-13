@@ -2,8 +2,10 @@ console.log("exercice 3");
 $(document).ready(function() {
     var sucre = 0;
     var boissonSelected = "";
+    var monPrix = 0;
     var typePieces = [200 , 100 , 50 , 20 , 10 , 5] ; 
     var pieces = [0, 0, 0, 0, 0, 0] ;
+    var monnaie = 0;
 
 //_____________________________________GESTION Boissons
 $( "#maBoisson" ).click(function() { 
@@ -12,8 +14,10 @@ $( "#maBoisson" ).click(function() {
    
 $( ".choix" ).click(function() {    
     boissonSelected = $( this ).attr( 'id' ); 
+    monPrix = $( this ).attr( 'href' ); 
     let selected = $( ".choix" ).hasClass( "selected" ); 
     selectDrink(selected, boissonSelected);
+
 }); 
 
 $( "#valid" ).click(function() { 
@@ -38,6 +42,7 @@ function resetDrink(){
     $('#imgGobelet').removeClass("visible"); //Enlever GOBELET Vide "visible"          
     $('.imgBoisson').removeClass("visible"); //Rendre la boisson associée "visible"
     $('.choix').removeClass("selected");     //Enlever les choix "selected"         
+    addSugar(0);
 }
 
 function prepare(nbSugar){
@@ -107,6 +112,7 @@ $( "#renduMonnaie" ).click(function() {
 });
 
 function resetCoins(){
+    console.log((monnaie*100) - monPrix);
     pieces = [0, 0, 0, 0, 0, 0]
     majMonnayeur();
 } 
