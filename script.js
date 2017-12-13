@@ -1,34 +1,65 @@
 console.log("exercice 3");
 $(document).ready(function() {
     var sucre = 0;
+    var boissonSelected = "";
     var typePieces = [200 , 100 , 50 , 20 , 10 , 5] ; 
     var pieces = [0, 0, 0, 0, 0, 0] ;
 
 //_____________________________________GESTION Boissons
+$( "#maBoisson" ).click(function() { 
+    resetDrink();    
+});
+   
 $( ".choix" ).click(function() {    
-    let monId = $( this ).attr( 'id' ); 
+    boissonSelected = $( this ).attr( 'id' ); 
     let selected = $( ".choix" ).hasClass( "selected" ); 
-    selectDrink(selected, monId);
+    selectDrink(selected, boissonSelected);
+}); 
+
+$( "#valid" ).click(function() { 
+    let monSucre = sucre;  
+    prepare(monSucre);
 });
 
 function selectDrink(doSelect, drink){
     if($('#' + drink).hasClass("selected") || drink === "reset")//SI la boisson a deja la classe "selected"
     {
         $('.choix').removeClass("selected");     //Enlever les choix "selected"     
-        //$('.imgBoisson').removeClass("visible"); //Enlever les boisson associée "visible" 
-        //$('#imgGobelet').addClass("visible"); //Remettre GOBELET Vide "visible" 
         
     }else{//----------------------------------------------//SINON
-        //$('#imgGobelet').removeClass("visible"); //Enlever GOBELET Vide "visible"          
         $('#' + drink).addClass("selected");          //Rendre le choix "selected"    
-        //$('#imgBoisson' + drink).addClass("visible"); //Rendre la boisson associée "visible"
         $('.choix').not('#' + drink).removeClass("selected");//Enleve toutes les class 'selected, sauf element cliquée            
-        //$('.imgBoisson').not('#imgBoisson' + drink).removeClass("visible"); // /Enleve toutes les class 'selected, sauf element cliquée              
     }
 }
 
 function resetDrink(){
-    selectDrink(true, "reset");
+    let mesSucres = "";
+    $("#zoneSucres").html(mesSucres);    
+    $('#imgGobelet').removeClass("visible"); //Enlever GOBELET Vide "visible"          
+    $('.imgBoisson').removeClass("visible"); //Rendre la boisson associée "visible"
+    $('.choix').removeClass("selected");     //Enlever les choix "selected"         
+}
+
+function prepare(nbSugar){
+    let mesSucres = "";
+    if($('.choix').hasClass("selected")){
+        if(nbSugar>0){
+            for(i = 0; i < nbSugar ; i++)
+            {
+                mesSucres += "<img class='img-responsive sucres sucresBoisson' src='images/monSucre.png'/>";
+                $("#zoneSucres").html(mesSucres);
+            }
+        }else{
+            $("#zoneSucres").html(mesSucres);
+        }
+        $('#imgGobelet').removeClass("visible"); //Enlever GOBELET Vide "visible"          
+        $('#imgBoisson' + boissonSelected).addClass("visible"); //Rendre la boisson associée "visible"
+        $('.imgBoisson').not('#imgBoisson' + boissonSelected).removeClass("visible"); // /Enleve toutes les class 'selected, sauf element cliquée              
+    
+    }else{
+        $("#zoneSucres").html(mesSucres);        
+    }
+
 }
 //_____________________________________END GESTION Boissons
 
@@ -56,7 +87,6 @@ function addSugar(nb){
             myImage = "images/monSucre.png";            //Remplace le contenu de myImage par monSucre.png (sucre non selectionné)
         }
       });
-    console.log(nb);
 }
 //_____________________________________END GESTION SUCRE
 

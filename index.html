@@ -13,7 +13,7 @@
 </head>
 
 <body>
- <div class="col-md-8 col-md-offset-2 container-fluid text-center">
+ <div class="col-xs-8 col-xs-offset-2 container-fluid text-center">
     <div class="container-fluid bg-1 text-center tis_container-fluid">
             <h1>Machine à Café Virtuelle</h1>
             <p id="tagline" ></p>
@@ -30,7 +30,7 @@
                     <img id="sucre4" class="img-responsive sucres" src="images/monSucre.png"/>                
                     <img id="sucre5" class="img-responsive sucres" src="images/monSucre.png"/>                
                 </div>
-                <div class="col-md-4">
+                <div class="col-xl-4">
                     <div id="monnayeur"><h3><strong>0</strong> Credits</h3></div>
                     <button id="renduMonnaie">Rendu Monnaie</button>
                 </div>
@@ -42,10 +42,11 @@
     <div class="container text-left tis_Container">    
         <div class="row">
             <div class="col-md-4">
-                <div id="Capuchino" class="choix"><h3>Capuchino</h3></div>
+                <div id="Expresso" class="choix"><h3>Double Expresso</h3></div>
+                <div id="Capuchino" class="choix"><h3>Cappuccino</h3></div>
                 <div id="Chocolat" class="choix"><h3>Chocolat Intense</h3></div>
                 <div id="Thé" class="choix"><h3>Thé</h3></div>
-                <div id="Expresso" class="choix"><h3>Double Expresso</h3></div>
+                <button id="valid">valider</button>
             </div>
         </div>
     </div>
@@ -55,13 +56,20 @@
     <!-- maBoissons -->      
     <div class="container text-left tis_Container">    
             <div class="row">
-                <div id="maBoisson" class="col-md-4 col-md-push-9 fixed-bottom">
-                    <img id="imgBoissonCapuchino" class="imgBoisson" src="images/monCapuchino.png"/>
-                    <img id="imgBoissonChocolat" class="imgBoisson" src="images/monChocolat.png"/>
-                    <img id="imgBoissonThé" class="imgBoisson" src="images/monThé.png"/>
-                    <img id="imgBoissonExpresso" class="imgBoisson" src="images/monExpresso.png"/>
-                    <img id="imgGobelet" class="imgBoisson" src="images/Gobelet.png"/>
+                <div id="monGobelet" class="col-sm-4 col-sm-push-6 fixed-bottom">
+                    <img id="imgGobelet" class="imgBoisson" src="images/Gobelet.png"/>   
+                </div>                     
+                <div id="maBoisson" class="col-xs-4 col-sm-push-6 fixed-bottom">
+                    <img id="imgBoissonCapuchino" class="imgBoisson" src="images/cappuccino.png"/>
+                    <img id="imgBoissonChocolat" class="imgBoisson" src="images/chocolat.png"/>
+                    <img id="imgBoissonThe" class="imgBoisson" src="images/the.png"/>
+                    <img id="imgBoissonExpresso" class="imgBoisson" src="images/doubleExpresso.png"/>
                 </div>
+                <div id="zoneSucres" class="col-xs-2 col-sm-push-8 fixed-bottom">                                      
+                </div>  
+                <div id="zoneTouillette" class="col-xs-2 col-sm-push-8 fixed-bottom">                                      
+                        <img id="imgTouillette" class="imgBoisson" src="images/touillette.png"/>
+                    </div>    
             </div>
         </div>
     <!-- End maBoissons -->
