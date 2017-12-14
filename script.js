@@ -27,7 +27,7 @@ $( "#valid" ).click(function() {
         prepare(monSucre);
         addSugar(0); 
         $('.choix').removeClass("selected");     //Enlever les choix "selected"       
-        alert("Je vous rend " + aRendre); 
+        alert("Je vous rend " + (aRendre/100)); 
         resetCoins();     
     }else{
         alert("Argent insuffisant ");              
