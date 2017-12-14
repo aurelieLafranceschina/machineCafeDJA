@@ -97,6 +97,38 @@ function prepare(nbSugar){
         if(nbSugar>0){ 
             $('#imgTouillette').addClass("visible"); //Ajouter Touillette Vide "visible"            
         }
+        switch (boissonSelected) {
+            case "Expresso":
+                consumeWater(1);
+                consumeCoffee(3);
+                consumeLait(1);
+                consumeGobs(1);
+                consumeSucres(nbSugar);
+                break;
+            case "Capuchino":
+                consumeWater(2);
+                consumeCoffee(2);
+                consumeLait(2);
+                consumeGobs(1);
+                consumeSucres(nbSugar);
+            break;
+            case "Chocolat":
+                consumeWater(3);
+                consumeChocolate(2);
+                consumeLait(1);
+                consumeGobs(1);
+                consumeSucres(nbSugar);
+            break;
+            case "The":
+                consumeWater(3);
+                consumeThe(2);
+                consumeGobs(1);
+                consumeSucres(nbSugar);            
+                break;
+            default:
+                alert("Erreur de boisson");
+        }
+    
         
     }else{
         $("#zoneSucres").html(mesSucres);        
