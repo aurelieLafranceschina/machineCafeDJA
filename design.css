@@ -240,4 +240,52 @@ h3{
     margin-bottom: 30px;
 }
 
+#eau {
+    position : absolute;
+    margin-top: 150px;
+    margin-left : 280px;
 
+}
+
+#gobs {
+    position : absolute;
+    margin-top: 150px;
+    margin-left : 248px;
+
+}
+
+#lait {
+    position : absolute;
+    margin-top: 70px;
+    margin-left : 120px;
+
+}
+
+#chocolat {
+    position : absolute;
+    margin-top: 70px;
+    margin-left : 120px;
+
+}
+
+#the {
+    position : absolute;
+    margin-top: 70px;
+    margin-left : 120px;
+
+}
+
+
+#cafe {
+    position : absolute;
+    margin-top: 50px;
+    margin-left : 105px;
+
+}
+
+#sucre {
+    position : absolute;
+    margin-top: 80px;
+    margin-left : 400px;
+
+}
