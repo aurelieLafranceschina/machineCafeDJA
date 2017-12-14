@@ -24,34 +24,37 @@ $( ".choix" ).click(function() {
 
 $( "#valid" ).click(function() { 
     let aRendre = (monnaie*100) - monPrix;
-    if(aRendre >= 0){
-        let monSucre = sucre;  
-        prepare(monSucre);
-        addSugar(0); 
-        $('.choix').removeClass("selected");     //Enlever les choix "selected"  
-        aRendre=aRendre/100;     
-        alert("Je vous rend " + (aRendre)); 
-        renduMonnaie(aRendre);
-        resetCoins();     
+    if($( ".choix" ).hasClass( "selected" ))
+    {
+        if(aRendre >= 0){
+            let monSucre = sucre;  
+            prepare(monSucre);
+            addSugar(0); 
+            $('.choix').removeClass("selected");     //Enlever les choix "selected"  
+            alert("Je vous rend " + (aRendre)); 
+            renduMonnaie(aRendre);     
+        }else{
+            alert("Argent insuffisant ");              
+        }
     }else{
-        alert("Argent insuffisant ");              
+        alert("selectionnez une boisson")
     }
 });
 
-function renduMonnaie(argent){
+function renduMonnaie(argent){ 
     let sommeRendue = [] ;    
-            
     for(i = 0 ; i < 6; i++){
         while (argent >= typePieces[i] && dispoPieces[i] > 0 ) 
         {
-        sommeRendue.push(typePieces[i]) ;
-        argent = argent - typePieces[i] ;
-        dispoPieces[i] =dispoPieces[i] - 1 ;
+          sommeRendue.push(typePieces[i]) ;
+          argent = argent - typePieces[i] ;
+          dispoPieces[i] =dispoPieces[i] - 1 ;
         }
-    }
-    console.log(monnaie);
+     }
+     majMonnayeur();
     console.log(sommeRendue);
-    
+    pieces = [0, 0, 0, 0, 0, 0]
+    majCredit();
 }
     
 
@@ -146,9 +149,14 @@ $( "#renduMonnaie" ).click(function() {
 });
 
 function resetCoins(){
+    let rendreTout = $( "#monnayeur strong" ).text();
+    rendreTout= rendreTout*100;
+    renduMonnaie(rendreTout)
     pieces = [0, 0, 0, 0, 0, 0]
     majCredit();
 } 
+
+
 
 function addCoin(coin){
     switch (coin) {
