@@ -170,29 +170,31 @@ function majMonnayeur()
 //_____________________________________END GESTION Pieces
 
 
-
+let doseEau = 10;
 function consumeWater(nbDoses){
-
-    let doseEau = 10;
     doseEau = doseEau - nbDoses ;
+    $("#eau").html("<h2>"+doseEau+"</h2>");
 }
 
+ let doseCoffee = 10;
 function consumeCoffee(nbDoses){
-
-    let doseCoffee = 10;
     doseCoffee = doseCoffee - nbDoses ; 
+    $("#cafe").html("<h2>"+doseCoffee+"</h2>");
 }
-
+let doseChocolate = 10;
 function consumeChocolate(nbDoses){
 
-    let doseChocolate = 10;
+    
     doseChocolate = doseChocolate - nbDoses ; 
 }
-
+let doseLait = 10;
 function consumeLait(nbDoses){
 
-    let doseLait = 10;
+   
     doseLait = doseLait - nbDoses ; 
 }
 
+
+consumeWater(8);
+consumeCoffee(0);
 });
