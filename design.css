@@ -187,3 +187,7 @@ h3{
     right: 0;
     top: 0;
 }
+.title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

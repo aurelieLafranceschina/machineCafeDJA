@@ -169,4 +169,30 @@ function majMonnayeur()
 
 //_____________________________________END GESTION Pieces
 
+
+
+function consumeWater(nbDoses){
+
+    let doseEau = 10;
+    doseEau = doseEau - nbDoses ;
+}
+
+function consumeCoffee(nbDoses){
+
+    let doseCoffee = 10;
+    doseCoffee = doseCoffee - nbDoses ; 
+}
+
+function consumeChocolate(nbDoses){
+
+    let doseChocolate = 10;
+    doseChocolate = doseChocolate - nbDoses ; 
+}
+
+function consumeLait(nbDoses){
+
+    let doseLait = 10;
+    doseLait = doseLait - nbDoses ; 
+}
+
 });
