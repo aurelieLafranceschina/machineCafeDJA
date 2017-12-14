@@ -360,11 +360,11 @@ function consumeSucres(nbDoses){
     doseSucre = doseSucre - nbDoses ; 
     $("#sucre").html("<h2>"+doseSucre+"</h2>");
 }
-consumeWater(8);
+consumeWater(0);
 consumeCoffee(0);
-consumeChocolate(6);
-consumeLait(3);
-consumeThe(5);
-consumeGobs(3);
-consumeSucres(7);
+consumeChocolate(0);
+consumeLait(0);
+consumeThe(0);
+consumeGobs(0);
+consumeSucres(0);
 });
