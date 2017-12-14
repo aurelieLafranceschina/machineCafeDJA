@@ -136,3 +136,54 @@ h3{
 #pieceE{
     margin-top: -1.4em;
 }
+
+.pMonnayeur{
+    background-color: #2a7ad6;
+    width: 19em;
+    height: 6em;
+    text-align: center;
+    -webkit-border-top-left-radius: 50px;
+    -webkit-border-bottom-left-radius: 50px;
+    -moz-border-radius-topleft: 50px;
+    -moz-border-radius-bottomleft: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;-webkit-box-shadow: 3px 3px 11px -1px rgba(0,0,0,0.65);
+    -moz-box-shadow: 3px 3px 11px -1px rgba(0,0,0,0.65);
+    box-shadow: 3px 3px 11px -1px rgba(0,0,0,0.65);
+    color: black;
+    border: 8px solid rgba(39, 42, 221, 0); 
+    margin-top: 1em;
+    margin-bottom: 2em;
+    position: relative;
+
+}
+
+.nbPieces{
+    background-color: white;
+    width: 10em;
+    height: 4.9em;
+    text-align: center;
+    -webkit-box-shadow: 3px 3px 11px -1px rgba(0,0,0,0.65);
+    -moz-box-shadow: 3px 3px 11px -1px rgba(0,0,0,0.65);
+    box-shadow: 3px 3px 11px -1px rgba(0,0,0,0.65);
+    color: black;
+    border: 8px solid rgba(39, 42, 221, 0); 
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.plusMoins{
+    background-color: white;
+    width: 2em;
+    height: 4.9em;
+    text-align: center;
+    -webkit-box-shadow: 3px 3px 11px -1px rgba(0,0,0,0.65);
+    -moz-box-shadow: 3px 3px 11px -1px rgba(0,0,0,0.65);
+    box-shadow: 3px 3px 11px -1px rgba(0,0,0,0.65);
+    color: black;
+    border: 8px solid rgba(39, 42, 221, 0); 
+    position: absolute;
+    right: 0;
+    top: 0;
+}
