@@ -4,9 +4,11 @@ $(document).ready(function() {
     var boissonSelected = "";
     var monPrix = 0;
     var typePieces = [200 , 100 , 50 , 20 , 10 , 5] ; 
+    let dispoPieces = [10 , 10 , 10 , 10, 10 , 10] ;    
     var pieces = [0, 0, 0, 0, 0, 0] ;
     var monnaie = 0;
-
+    majMonnayeur();
+    
 //_____________________________________GESTION Boissons
 $( "#imgTouillette, #maBoisson, zoneSucres" ).click(function() { 
     resetDrink();    
@@ -26,14 +28,32 @@ $( "#valid" ).click(function() {
         let monSucre = sucre;  
         prepare(monSucre);
         addSugar(0); 
-        $('.choix').removeClass("selected");     //Enlever les choix "selected"       
-        alert("Je vous rend " + (aRendre/100)); 
+        $('.choix').removeClass("selected");     //Enlever les choix "selected"  
+        aRendre=aRendre/100;     
+        alert("Je vous rend " + (aRendre)); 
+        renduMonnaie(aRendre);
         resetCoins();     
     }else{
         alert("Argent insuffisant ");              
     }
-    
 });
+
+function renduMonnaie(argent){
+    let sommeRendue = [] ;    
+            
+    for(i = 0 ; i < 6; i++){
+        while (argent >= typePieces[i] && dispoPieces[i] > 0 ) 
+        {
+        sommeRendue.push(typePieces[i]) ;
+        argent = argent - typePieces[i] ;
+        dispoPieces[i] =dispoPieces[i] - 1 ;
+        }
+    }
+    console.log(monnaie);
+    console.log(sommeRendue);
+    
+}
+    
 
 function selectDrink(doSelect, drink){
     if($('#' + drink).hasClass("selected") || drink === "reset")//SI la boisson a deja la classe "selected"
@@ -127,37 +147,45 @@ $( "#renduMonnaie" ).click(function() {
 
 function resetCoins(){
     pieces = [0, 0, 0, 0, 0, 0]
-    majMonnayeur();
+    majCredit();
 } 
 
 function addCoin(coin){
     switch (coin) {
         case 5:
             pieces[5] = pieces[5]+1;
+            dispoPieces[5] = dispoPieces[5]+1;
             break;
         case 10:
             pieces[4] = pieces[4]+1;
+            dispoPieces[4] = dispoPieces[4]+1;
         break;
         case 20:
             pieces[3] = pieces[3]+1;
+            dispoPieces[3] = dispoPieces[3]+1;
         break;
         case 50:
             pieces[2] = pieces[2]+1;
+            dispoPieces[2] = dispoPieces[2]+1;
         break;
         case 1:
             pieces[1] = pieces[1]+1;
+            dispoPieces[1] = dispoPieces[1]+1;
         break;
         case 2:
             pieces[0] = pieces[0]+1;
+            dispoPieces[0] = dispoPieces[0]+1;
         break;
         default:
             alert("Erreur de Piece");
     }
+    majCredit();
     majMonnayeur();
+    
 }
 
 
-function majMonnayeur()
+function majCredit()
 {
     monnaie=0;
     for(i = 0 ; i < 6; i++){
@@ -168,6 +196,89 @@ function majMonnayeur()
 }
 
 //_____________________________________END GESTION Pieces
+
+//_____________________________________GESTION Monnayeur
+$( ".plus" ).click(function() {    
+    //Récupérer uniquement les chiffres de l'id (pour connaitre la valeur de la piece)
+        let maPieceMonnayeur = $( this ).parent("div").attr( 'id' ).replace(/[^0-9]/gi, ''); 
+        let number = parseInt(maPieceMonnayeur, 10);
+    //-------------------------------------------------------------------------------
+    addMonnayeur(number);
+});
+
+$( ".moins" ).click(function() {    
+    //Récupérer uniquement les chiffres de l'id (pour connaitre la valeur de la piece)
+        let maPieceMonnayeur = $( this ).parent("div").attr( 'id' ).replace(/[^0-9]/gi, ''); //
+        let number = parseInt(maPieceMonnayeur, 10);
+    //-------------------------------------------------------------------------------
+    removeMonnayeur(number);
+});
+
+
+function addMonnayeur(coin){
+    switch (coin) {
+        case 5:
+            dispoPieces[5] = dispoPieces[5]+1;
+            break;
+        case 10:
+            dispoPieces[4] = dispoPieces[4]+1;
+        break;
+        case 20:
+            dispoPieces[3] = dispoPieces[3]+1;
+        break;
+        case 50:
+            dispoPieces[2] = dispoPieces[2]+1;
+        break;
+        case 1:
+            dispoPieces[1] = dispoPieces[1]+1;
+        break;
+        case 2:
+            dispoPieces[0] = dispoPieces[0]+1;
+        break;
+        default:
+            alert("Erreur de Piece");
+    }
+    majMonnayeur();
+}
+
+function removeMonnayeur(coin){
+    switch (coin) {
+        case 5:
+            dispoPieces[5] = dispoPieces[5]-1;
+            break;
+        case 10:
+            dispoPieces[4] = dispoPieces[4]-1;
+        break;
+        case 20:
+            dispoPieces[3] = dispoPieces[3]-1;
+        break;
+        case 50:
+            dispoPieces[2] = dispoPieces[2]-1;
+        break;
+        case 1:
+            dispoPieces[1] = dispoPieces[1]-1;
+        break;
+        case 2:
+            dispoPieces[0] = dispoPieces[0]-1;
+        break;
+        default:
+            alert("Erreur de Piece");
+    }
+    majMonnayeur();
+}
+
+
+function majMonnayeur()
+{
+    let x = 0
+    $( ".nbPieces h3" ).each(function( index, element ) {    
+        $( this ).html( dispoPieces[x] );          
+        x++;  
+    });        
+}
+
+
+//_____________________________________END GESTION Monnayeur
 
 
 
