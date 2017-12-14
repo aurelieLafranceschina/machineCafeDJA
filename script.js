@@ -183,18 +183,37 @@ function consumeCoffee(nbDoses){
 }
 let doseChocolate = 10;
 function consumeChocolate(nbDoses){
-
-    
     doseChocolate = doseChocolate - nbDoses ; 
+    $("#chocolat").html("<h2>"+doseChocolate+"</h2>");
 }
 let doseLait = 10;
 function consumeLait(nbDoses){
-
-   
     doseLait = doseLait - nbDoses ; 
+    $("#lait").html("<h2>"+doseLait+"</h2>");
 }
 
+let doseThe = 10;
+function consumeThe(nbDoses){
+    doseThe = doseThe - nbDoses ; 
+    $("#the").html("<h2>"+doseThe+"</h2>");
+}
 
+let doseGobs = 10;
+function consumeGobs(nbDoses){
+    doseGobs = doseGobs - nbDoses ; 
+    $("#gobs").html("<h2>"+doseGobs+"</h2>");
+}
+
+let doseSucre = 10;
+function consumeSucres(nbDoses){
+    doseSucre = doseSucre - nbDoses ; 
+    $("#sucre").html("<h2>"+doseSucre+"</h2>");
+}
 consumeWater(8);
 consumeCoffee(0);
+consumeChocolate(6);
+consumeLait(3);
+consumeThe(5);
+consumeGobs(3);
+consumeSucres(7);
 });
