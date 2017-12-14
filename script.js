@@ -31,6 +31,8 @@ $( "#valid" ).click(function() {
             prepare(monSucre);
             addSugar(0); 
             $('.choix').removeClass("selected");     //Enlever les choix "selected"  
+            aRendre=aRendre/100;
+            aRendre = aRendre.toFixed(2);
             alert("Je vous rend " + (aRendre)); 
             renduMonnaie(aRendre);     
         }else{
